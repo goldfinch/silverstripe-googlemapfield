@@ -1,6 +1,8 @@
 silverstripe-googlemapfield
 ==============
 
+* SS5 compatible fork of [BetterBrief/silverstripe-googlemapfield](https://github.com/BetterBrief/silverstripe-googlemapfield)
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/BetterBrief/silverstripe-googlemapfield/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/BetterBrief/silverstripe-googlemapfield/?branch=master)
 
 Lets you record a precise location using latitude/longitude/zoom fields to a DataObject.
@@ -9,7 +11,7 @@ Displays a map using the Google Maps API. The user may then choose where to plac
 
 You can also search for locations using the search box, which uses the Google Maps Geocoding API.
 
-Supports SilverStripe 4
+Supports SilverStripe 5
 
 ## Usage
 
@@ -29,19 +31,19 @@ class Store extends DataObject
         'Latitude' => 'Varchar',
         'Longitude' => 'Varchar',
     ];
-    
+
     public function getCMSFields() {
         $fields = parent::getCMSFiels();
-        
+
         // add the map field
         $fields->addFieldToTab('Root.Main', new GoogleMapField(
             $this,
             'Location'
         ));
-        
+
         // remove the lat / lng fields from the CMS
         $fields->removeFieldsFromTab('Root.Main', ['Latitude', 'Longitude']);
-        
+
         return $fields;
     }
 }
