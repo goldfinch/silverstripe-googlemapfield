@@ -19,7 +19,6 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 use SilverStripe\ORM\DataObjectInterface;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Core\Convert;
 
 class GoogleMapField extends FormField {
 
@@ -162,7 +161,7 @@ class GoogleMapField extends FormField {
 		);
 
 		$jsOptions = array_replace_recursive($jsOptions, $this->options);
-		$this->setAttribute('data-settings', Convert::array2json($jsOptions));
+		$this->setAttribute('data-settings', json_encode($jsOptions));
 		$this->requireDependencies();
 		return parent::Field($properties);
 	}
