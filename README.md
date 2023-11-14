@@ -57,6 +57,12 @@ BetterBrief\GoogleMapField:
     api_key: '[google-api-key]'
 ```
 
+or through `.env`
+
+```
+APP_GOOGLE_MAPS_KEY=""
+```
+
 ## Optional configuration
 
 ### Configuration options
