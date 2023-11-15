@@ -12,12 +12,25 @@
 		if(field.data('gmapfield-inited') === true) {
 			return;
 		}
-		field.data('gmapfield-inited', true);
-		var settings = JSON.parse(field.attr('data-settings')),
-			centre = new google.maps.LatLng(settings.coords[0], settings.coords[1]),
+
+        field.data('gmapfield-inited', true);
+		var settings = JSON.parse(field.attr('data-settings'));
+
+        var defaultZoom = settings.map.zoom * 1;
+
+        // Set default zoom
+        if (
+            settings.default_field_values.zoom &&
+            settings.coords[0] == settings.default_field_values.Latitude &&
+            settings.coords[1] == settings.default_field_values.Longitude
+        ) {
+            defaultZoom = settings.default_field_values.zoom
+        }
+
+        var centre = new google.maps.LatLng(settings.coords[0], settings.coords[1]),
 			mapSettings = {
 				streetViewControl: false,
-				zoom: settings.map.zoom * 1,
+				zoom: defaultZoom,
 				center: centre,
 				mapTypeId: google.maps.MapTypeId[settings.map.mapTypeId]
 			},
