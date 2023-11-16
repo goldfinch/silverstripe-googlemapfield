@@ -27,6 +27,11 @@
             defaultZoom = settings.default_field_values.zoom
         }
 
+        var zoomField = field.find('.googlemapfield-zoomfield')
+        if (zoomField && zoomField.val()) {
+            defaultZoom = parseInt(zoomField.val())
+        }
+
         var centre = new google.maps.LatLng(settings.coords[0], settings.coords[1]),
 			mapSettings = {
 				streetViewControl: false,
