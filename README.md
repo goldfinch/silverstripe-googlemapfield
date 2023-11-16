@@ -30,6 +30,7 @@ class Store extends DataObject
         'Title' => 'Varchar(255)',
         'Latitude' => 'Varchar',
         'Longitude' => 'Varchar',
+        'Zoom' => 'Int',
     ];
 
     public function getCMSFields() {
