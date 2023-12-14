@@ -135,7 +135,7 @@ class GoogleMapField extends FormField {
 
 		if($this->options['show_search_box']) {
 			$this->children->push(
-				TextField::create('Search')
+				TextField::create('MapSearch')
 				->addExtraClass('googlemapfield-searchfield')
 				->setAttribute('placeholder', 'Search for a location')
 			);
