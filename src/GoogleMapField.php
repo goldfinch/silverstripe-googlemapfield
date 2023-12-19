@@ -175,7 +175,7 @@ class GoogleMapField extends FormField {
 		$gmapsParams = array(
 			'callback' => 'googlemapfieldInit',
 		);
-        $key = Environment::getEnv('APP_GOOGLE_MAPS_KEY') ?? $this->getOption('api_key');
+        $key = Environment::getEnv('APP_GOOGLE_MAPS_KEY') ?: $this->getOption('api_key');
 		if($key) {
 			$gmapsParams['key'] = $key;
 		}
